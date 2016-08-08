@@ -6,6 +6,7 @@
 
 ## Installation
 Run
+
     npm install -g typings
     npm install
 
