@@ -1,0 +1,12 @@
+<form *ngIf="todo" (submit)="save()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input [(ngModel)]="todo.name" type="text" class="form-control" id="name" placeholder="Name">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input [(ngModel)]="todo.done" type="checkbox"> Done
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

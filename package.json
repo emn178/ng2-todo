@@ -1,0 +1,47 @@
+{
+  "name": "todo",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "webpack-dev-server --progress --profile --colors --watch --display-error-details --display-cached --content-base src/",
+    "clean": "rm -rf dist/*",
+    "build": "npm run clean;NODE_ENV=production webpack",
+    "postinstall": "typings install"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/forms": "0.2.0",
+    "@angular/http": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "@angular/router": "3.0.0-beta.2",
+    "@angular/router-deprecated": "2.0.0-rc.2",
+    "@angular/upgrade": "2.0.0-rc.4",
+    "angular2-in-memory-web-api": "0.0.14",
+    "bootstrap": "^3.3.6",
+    "core-js": "^2.4.0",
+    "font-awesome": "^4.6.3",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "angular2-template-loader": "^0.4.0",
+    "css-loader": "^0.23.1",
+    "extract-loader": "0.0.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "pug-html-loader": "^1.0.8",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.13.1",
+    "to-string-loader": "^1.1.4",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

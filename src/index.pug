@@ -1,0 +1,10 @@
+html
+  head
+    title ToDo Demo
+    base(href='/')
+  body
+    app
+      center
+        i.fa.fa-spinner.fa-spin
+    if app.env.development
+      script(src='/webpack-dev-server.js')
