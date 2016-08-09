@@ -4,7 +4,7 @@ import { TodoService } from '../+todos';
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls:  ['./dashboard.component.css']
+  styleUrls:  ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   total: number = 0;

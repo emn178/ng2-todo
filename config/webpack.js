@@ -33,32 +33,41 @@ var config = {
     loaders: [
       {
         test: /\.ts$/,
-        loaders: ['ts-loader', 'angular2-template-loader']
+        loaders: ['ts', 'angular2-template']
       },
       {
         test: /\.html$/,
-        loader: 'raw-loader'
+        loader: 'html'
       },
       {
         test: /\.pug$/,
-        loader: 'pug-html-loader'
+        loader: 'pug'
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*)?$/,
-        loader: 'file-loader?name=assets/[name].[hash].[ext]'
+        loader: 'file?name=assets/[name].[hash].[ext]'
       },
+
+      // assets
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         exclude: helper.root('src/app'),
-        loaders: ['style-loader', 'css-loader']
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap')
       },
+
+      // components
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         include: helper.root('src/app'),
-        loaders: ['to-string-loader', 'css-loader']
+        loaders: ['css-to-string-loader', 'css', 'sass']
       }
     ]
   },
+
+  htmlLoader: {
+    minimize: false // workaround for ng2
+  },
+
   plugins: [
     new ExtractTextPlugin('[name].[hash].css'),
 

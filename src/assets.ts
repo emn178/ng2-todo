@@ -1,1 +1,1 @@
-require("./assets/stylesheets/application.css");
+require("./assets/stylesheets/application.scss");
