@@ -41,7 +41,7 @@ var config = {
       },
       {
         test: /\.pug$/,
-        loader: 'pug'
+        loaders: ['html', 'val', 'pug-html']
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*)?$/,
@@ -79,9 +79,7 @@ var config = {
       chunksSortMode: 'dependency'
     }),
     new DefinePlugin({
-      ENV: JSON.stringify({
-        NODE_ENV: process.env.NODE_ENV
-      })
+      ENV: JSON.stringify(ENV)
     }),
   ]
 };

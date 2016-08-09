@@ -1,10 +1,11 @@
+doctype html
 html
   head
-    title ToDo Demo
+    title Todo Demo
     base(href='/')
   body
     app
       center
         i.fa.fa-spinner.fa-spin
-    if app.env.development
+    if ENV.NODE_ENV == 'development'
       script(src='/webpack-dev-server.js')

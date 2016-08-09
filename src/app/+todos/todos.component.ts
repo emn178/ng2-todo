@@ -6,7 +6,7 @@ import { Todo, TodoService } from './shared';
 
 @Component({
   selector: 'todos',
-  templateUrl: './todos.component.html',
+  templateUrl: './todos.component.pug',
   styleUrls:  ['./todos.component.css'],
   directives: [ROUTER_DIRECTIVES, ConfirmDirective]
 })

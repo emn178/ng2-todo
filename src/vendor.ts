@@ -21,5 +21,4 @@ import 'rxjs';
 // You can import js, ts, css, sass, ...
 
 require("../node_modules/node-reset-scss/scss/_reset.scss");
-require("../node_modules/bootstrap/dist/css/bootstrap.css");
 require("../node_modules/font-awesome/css/font-awesome.css");

@@ -1,0 +1,27 @@
+h1 Todos
+a.btn.btn-primary([routerLink]="['/todos/new']")
+  i.fa.fa-plus
+  |  New
+hr
+.table-responsive
+  table.table.table-bordered.table-striped
+    colgroup
+      col(style='width: 60px;')
+      col(style='width: 60px;')
+      col
+      col(style='width: 100px;')
+    tr
+      th ID
+      th Done
+      th Name
+      th
+    tr(*ngFor='let todo of todos')
+      td {{todo.id}}
+      td
+        i.fa.fa-check(*ngIf='todo.done')
+      td
+        a([routerLink]="['/todos/', todo.id, 'edit']") {{todo.name}}
+      td
+        button.btn.btn-danger.btn-xs([message]="'Are you sure?'", (confirm)='destroy(todo)')
+          i.fa.fa-trash
+          |  Delete

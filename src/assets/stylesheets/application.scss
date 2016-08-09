@@ -1,6 +1,16 @@
-@import "themes/default.scss";
+@import "themes/default";
+$icon-font-path: "../../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
   padding-top: 70px;
   padding-bottom: 30px;
+}
+
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
 }
