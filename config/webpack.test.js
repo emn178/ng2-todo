@@ -1,14 +1,10 @@
 var webpack = require("webpack");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var DefinePlugin = require('webpack/lib/DefinePlugin');
 var helper = require('./helper');
 
 var config = {
-  entry: {
-    vendor: './src/vendor.ts',
-    main: './src/main.ts'
-  },
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['', '.ts', '.js'],
     root: helper.root('src')
@@ -24,7 +20,7 @@ var config = {
       {
         test: /\.ts$/,
         loaders: ['ts', 'angular2-template'],
-        exclude: /\.(spec|e2e)\.ts$/
+        exclude: /\.(e2e)\.ts$/
       },
       {
         test: /\.html$/,
@@ -60,15 +56,6 @@ var config = {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].[hash].css'),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor'].reverse()
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.pug',
-      chunksSortMode: 'dependency'
-    }),
     new DefinePlugin({
       __NODE_ENV__: JSON.stringify(ENV.NODE_ENV)
     }),

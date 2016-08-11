@@ -1,6 +1,6 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-import { DashboardRoutes } from './+dashboard';
-import { TodosRoutes } from './+todos';
+import { DashboardRoutes } from './dashboard';
+import { TodosRoutes } from './todos';
 
 const routes: RouterConfig = [
   {
@@ -12,6 +12,6 @@ const routes: RouterConfig = [
   ...TodosRoutes
 ];
 
-export const AppRouterProviders = [
+export const APP_ROUTER_PROVIDERS = [
   provideRouter(routes)
 ];

@@ -6,8 +6,8 @@ import { Todo, TodoService } from './shared';
 
 @Component({
   selector: 'todos',
-  templateUrl: './todos.component.pug',
-  styleUrls:  ['./todos.component.css'],
+  templateUrl: 'todos.component.pug',
+  styleUrls:  ['todos.component.css'],
   directives: [ROUTER_DIRECTIVES, ConfirmDirective]
 })
 export class TodosComponent implements OnInit {
@@ -18,7 +18,10 @@ export class TodosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.taskService.getAll().then(todos => this.todos = todos);
+    this.taskService.getAll().then(todos => {
+      this.todos = todos
+    });
+    
   }
 
   destroy(task: Todo) {

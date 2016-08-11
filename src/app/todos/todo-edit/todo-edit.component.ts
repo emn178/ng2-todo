@@ -4,8 +4,8 @@ import { Todo, TodoService } from '../shared';
 
 @Component({
   selector: 'todo-edit',
-  templateUrl: './todo-edit.component.html',
-  styleUrls:  ['./todo-edit.component.css']
+  templateUrl: 'todo-edit.component.pug',
+  styleUrls:  ['todo-edit.component.css']
 })
 export class TodoEditComponent implements OnInit, OnDestroy {
   todo: Todo;

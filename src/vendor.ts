@@ -1,12 +1,4 @@
-// Polyfills
-import 'core-js/es6';
-import 'reflect-metadata';
-require('zone.js/dist/zone');
-
-if (ENV.NODE_ENV == 'development') {
-  Error['stackTraceLimit'] = Infinity;
-  require('zone.js/dist/long-stack-trace-zone');
-}
+import './polyfills'
 
 // Angular 2
 import '@angular/platform-browser';

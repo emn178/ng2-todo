@@ -1,5 +1,1 @@
-interface ENV {
-  NODE_ENV: string
-}
-
-declare var ENV: ENV;
+declare var __NODE_ENV__: string;

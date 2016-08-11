@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../+todos';
+import { TodoService } from '../todos';
 
 @Component({
   selector: 'dashboard',
-  templateUrl: './dashboard.component.pug',
-  styleUrls:  ['./dashboard.component.scss']
+  templateUrl: 'dashboard.component.pug',
+  styleUrls:  ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   total: number = 0;

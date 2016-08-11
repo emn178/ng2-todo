@@ -1,0 +1,21 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      |  
+      a.navbar-brand([routerLink]="['/dashboard']") Todo Demo
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li(routerLinkActive='active')
+          a([routerLink]="['/dashboard']") Dashboard
+        li(routerLinkActive='active')
+          a([routerLink]="['/todos']") Todos
+.container.theme-showcase(role='main')
+  router-outlet
+  hr
+  footer
+    p &copy; 2016 Company, Inc.

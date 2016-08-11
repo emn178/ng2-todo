@@ -1,0 +1,12 @@
+form(*ngIf='todo', (submit)='save()', #form='ngForm')
+  .form-group
+    label(for='name') Name
+    |  
+    input#name.form-control([(ngModel)]='todo.name', #name='ngModel', name='name', type='text', placeholder='Name', required='')
+    .alert.alert-danger([hidden]='name.valid || name.pristine')  Name is required
+  .checkbox
+    label
+      input([(ngModel)]='todo.done', #done='ngModel', name='done', type='checkbox')
+      |  Done
+  |  
+  button.btn.btn-default(type='submit', [disabled]='!form.form.valid') Save

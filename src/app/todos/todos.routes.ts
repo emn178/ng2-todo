@@ -5,7 +5,7 @@ import { TodoEditComponent } from './todo-edit';
 export const TodosRoutes: RouterConfig = [
   {
     path: 'todos',
-    component: TodosComponent
+    component: TodosComponent,
   },
   {
     path: 'todos/:id/edit',

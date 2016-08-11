@@ -12,16 +12,16 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { enableProdMode } from '@angular/core';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
-if (ENV.NODE_ENV == 'production') {
+if (__NODE_ENV__ == 'production') {
   enableProdMode();
 }
 
-import { AppComponent, AppRouterProviders } from './app';
+import { AppComponent, APP_ROUTER_PROVIDERS } from './app';
 
 bootstrap(AppComponent, [
   disableDeprecatedForms(),
   provideForms(),
-  AppRouterProviders,
+  APP_ROUTER_PROVIDERS,
   HTTP_PROVIDERS,
   { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
   { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
