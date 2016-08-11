@@ -1,8 +1,8 @@
-import { provideRouter, RouterConfig }  from '@angular/router';
-import { DashboardRoutes } from './dashboard';
-import { TodosRoutes } from './todos';
+import { Routes, RouterModule } from '@angular/router';
+import { DashboardRoutes, DashboardDeclarations } from './dashboard';
+import { TodosRoutes, TodosDeclarations } from './todos';
 
-const routes: RouterConfig = [
+const routes: Routes = [
   {
     path: '',
     redirectTo: '/dashboard',
@@ -12,6 +12,8 @@ const routes: RouterConfig = [
   ...TodosRoutes
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
+export const routing = RouterModule.forRoot(routes);
+export const declarations = [
+  ...DashboardDeclarations,
+  ...TodosDeclarations
 ];

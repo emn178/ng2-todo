@@ -1,28 +1,14 @@
 require('./assets/stylesheets/application.scss');
 
-// Imports for loading & configuring the in-memory web api
-import { XHRBackend } from '@angular/http';
-
-import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
-import { InMemoryDataService } from './app';
-
 // The usual bootstrapping imports
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { HTTP_PROVIDERS } from '@angular/http';
 import { enableProdMode } from '@angular/core';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 if (__NODE_ENV__ == 'production') {
   enableProdMode();
 }
 
-import { AppComponent, APP_ROUTER_PROVIDERS } from './app';
+import { AppModule } from './app';
 
-bootstrap(AppComponent, [
-  disableDeprecatedForms(),
-  provideForms(),
-  APP_ROUTER_PROVIDERS,
-  HTTP_PROVIDERS,
-  { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
-  { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
-]);
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+platformBrowserDynamic().bootstrapModule(AppModule);

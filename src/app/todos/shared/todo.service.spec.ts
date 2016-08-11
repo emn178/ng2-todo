@@ -1,11 +1,13 @@
-import { beforeEachProviders, inject, async } from '@angular/core/testing';
+import { addProviders, inject, async } from '@angular/core/testing';
 import { DEFAULT_PROVIDERS, Server } from '../../../test/support';
 import { TodoService } from './todo.service';
 
 describe('TodoService', () => {
-  beforeEachProviders(() => DEFAULT_PROVIDERS.concat([
-    TodoService
-  ]));
+  beforeEach(() => {
+    addProviders(DEFAULT_PROVIDERS.concat([
+      TodoService
+    ]));
+  });
 
   describe('#getAll', () => {
     describe('when db has two records', () => {

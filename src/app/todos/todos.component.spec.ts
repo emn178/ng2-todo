@@ -1,14 +1,22 @@
-import { beforeEachProviders, inject, async, TestComponentBuilder } from '@angular/core/testing';
+import { addProviders, inject, async, TestComponentBuilder } from '@angular/core/testing';
 import { DEFAULT_PROVIDERS, Server } from '../../test/support';
 import { TodosComponent } from './todos.component';
 import { TodoService } from './shared';
 
 describe('TodosComponent', () => {
-  beforeEachProviders(() => DEFAULT_PROVIDERS.concat([
-    TestComponentBuilder,
-    TodosComponent,
-    TodoService
-  ]));
+  // beforeEachProviders(() => DEFAULT_PROVIDERS.concat([
+  //   TestComponentBuilder,
+  //   TodosComponent,
+  //   TodoService
+  // ]));
+
+  beforeEach(() => {
+    addProviders(DEFAULT_PROVIDERS.concat([
+      TestComponentBuilder,
+      TodosComponent,
+      TodoService
+    ]));
+  });
 
   describe('when db has one record', () => {
     describe('and done', () => {

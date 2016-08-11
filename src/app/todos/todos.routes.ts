@@ -1,8 +1,8 @@
-import { RouterConfig }  from '@angular/router';
+import { Routes }  from '@angular/router';
 import { TodosComponent } from './todos.component';
 import { TodoEditComponent } from './todo-edit';
 
-export const TodosRoutes: RouterConfig = [
+export const TodosRoutes: Routes = [
   {
     path: 'todos',
     component: TodosComponent,
@@ -16,3 +16,5 @@ export const TodosRoutes: RouterConfig = [
     component: TodoEditComponent
   },
 ];
+
+export const TodosDeclarations = [TodosComponent, TodoEditComponent];

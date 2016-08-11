@@ -1,4 +1,5 @@
 # Angular2 Todo Example
+Angular2 + Webpack + Pug + Sass + Karma example.
 
 ## Requirement
 * node v4.x.x
