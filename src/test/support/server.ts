@@ -11,7 +11,7 @@ export class Server {
   }
 
   request(method: RequestMethod, url: string|RegExp, body: any, code: number = 200, headers: Headers = undefined) {
-    return this.mockBackend.connections.subscribe(c => {
+    this.mockBackend.connections.subscribe(c => {
       if ((c.request.method as RequestMethod) != method) {
         return;
       }
@@ -30,6 +30,9 @@ export class Server {
         status: code,
         headers: headers
       })));
+    });
+    return new Promise((resolve) => {
+      setTimeout(resolve);
     });
   }
   get(url: string|RegExp, body: any, code: number = 200, headers: Headers = undefined) {

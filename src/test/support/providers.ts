@@ -7,16 +7,17 @@ import { MockBackend } from '@angular/http/testing';
 
 // The usual bootstrapping imports
 import { HTTP_PROVIDERS } from '@angular/http';
-import { routing } from '../../app';
 import { Server } from './server';
 
 class Mock {
   createUrlTree() {
   }
+  events = {
+    subscribe() {}
+  };
 }
 
 export var DEFAULT_PROVIDERS = [
-  routing.providers,
   { provide: APP_BASE_HREF, useValue: '/' },
   { provide: ActivatedRoute, useClass: Mock },
   { provide: Router, useClass: Mock },

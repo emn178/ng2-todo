@@ -1,12 +1,12 @@
-import { addProviders, inject, async } from '@angular/core/testing';
+import { inject, async, TestBed } from '@angular/core/testing';
 import { DEFAULT_PROVIDERS, Server } from '../../../test/support';
 import { TodoService } from './todo.service';
 
 describe('TodoService', () => {
   beforeEach(() => {
-    addProviders(DEFAULT_PROVIDERS.concat([
-      TodoService
-    ]));
+    TestBed.configureTestingModule({
+      providers: [...DEFAULT_PROVIDERS, TodoService]
+    });
   });
 
   describe('#getAll', () => {
