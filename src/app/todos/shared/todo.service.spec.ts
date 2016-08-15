@@ -1,3 +1,4 @@
+import { expect } from 'chai';
 import { inject, async, TestBed } from '@angular/core/testing';
 import { DEFAULT_PROVIDERS, Server } from '../../../test/support';
 import { TodoService } from './todo.service';
@@ -10,34 +11,34 @@ describe('TodoService', () => {
   });
 
   describe('#getAll', () => {
-    describe('when db has two records', () => {
+    context('when db has two records', () => {
       it('should be two', async(inject([ Server, TodoService ], (server: Server, todoService: TodoService) => {
         server.get('app/todos', {data: [{}, {}]});
 
         todoService.getAll().then(result => {
-          expect(result.length).toEqual(2);
+          expect(result.length).to.eq(2);
         });
       })));
     });
   });
 
   describe('#get', () => {
-    describe('when id found', () => {
+    context('when id found', () => {
       it('should be not undefined', async(inject([ Server, TodoService ], (server: Server, todoService: TodoService) => {
         server.get('app/todos', {data: [{id: 1}]});
 
         todoService.get(1).then(result => { 
-          expect(result).not.toBeUndefined()
+          expect(result).not.to.be.undefined;
         });
       })));
     });
 
-    describe('when id not found', () => {
+    context('when id not found', () => {
       it('should be undefined', async(inject([ Server, TodoService ], (server: Server, todoService: TodoService) => {
         server.get('app/todos', {data: [{id: 1}]});
 
         todoService.get(2).then(result => { 
-          expect(result).toBeUndefined();
+          expect(result).to.be.undefined;
         });
       })));
     });
