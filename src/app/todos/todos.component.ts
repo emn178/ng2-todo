@@ -7,7 +7,7 @@ import { Todo, TodoService } from './shared';
 @Component({
   selector: 'todos',
   templateUrl: 'todos.component.pug',
-  styleUrls:  ['todos.component.css'],
+  styleUrls:  ['todos.component.scss'],
   directives: [ROUTER_DIRECTIVES, ConfirmDirective]
 })
 export class TodosComponent implements OnInit {

@@ -5,7 +5,7 @@ import { TodoService } from './todos';
 @Component({
   selector: 'app',
   templateUrl: 'app.component.pug',
-  styleUrls:  ['app.component.css'],
+  styleUrls:  ['app.component.scss'],
   directives: [ROUTER_DIRECTIVES],
   providers: [
     TodoService

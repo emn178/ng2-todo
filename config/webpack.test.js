@@ -66,6 +66,13 @@ var config = {
     minimize: false // workaround for ng2
   },
 
+  ts: {
+    compilerOptions: {
+      inlineSourceMap: true,
+      sourceMap: false
+    }
+  },
+
   plugins: [
     new DefinePlugin({
       __NODE_ENV__: JSON.stringify(ENV.NODE_ENV)

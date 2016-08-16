@@ -17,7 +17,7 @@ var config = {
     path: 'dist',
     publicPath: '/',
     filename: '[name].[hash].js',
-    chunkFilename: '[id].[hash].chunk.js',
+    chunkFilename: '[id].[hash].chunk.js'
   },
   module: {
     loaders: [
