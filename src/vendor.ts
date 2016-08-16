@@ -12,5 +12,5 @@ import 'rxjs';
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
 
-require("../node_modules/node-reset-scss/scss/_reset.scss");
+require("./assets/stylesheets/bootstrap.scss");
 require("../node_modules/font-awesome/css/font-awesome.css");
