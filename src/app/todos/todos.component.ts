@@ -21,7 +21,6 @@ export class TodosComponent implements OnInit {
     this.taskService.getAll().then(todos => {
       this.todos = todos
     });
-    
   }
 
   destroy(task: Todo) {

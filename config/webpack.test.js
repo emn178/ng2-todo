@@ -46,7 +46,18 @@ var config = {
       {
         test: /\.s?css$/,
         include: helper.root('src/app'),
-        loaders: ['css-to-string-loader', 'css', 'sass']
+        loaders: ['css-to-string', 'css', 'sass']
+      }
+    ],
+    postLoaders: [
+      {
+        test: /\.(js|ts)$/, loader: 'istanbul-instrumenter',
+        include: helper.root('src'),
+        exclude: [
+          /\.(e2e|spec)\.ts$/,
+          /node_modules/,
+          /src\/test/
+        ]
       }
     ]
   },

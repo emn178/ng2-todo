@@ -1,26 +1,19 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'test';
-var ENV = require('./config/env');
-var helper = require('./config/helper');
-var file = helper.root('config/webpack.' + ENV.NODE_ENV + '.js');
-
-
 // Karma configuration
 // Generated on Wed Jul 13 2016 14:36:01 GMT+0800 (CST)
+process.env.NODE_ENV = process.env.NODE_ENV || 'test';
 
 module.exports = function(config) {
-  // var reports = ['spec', 'karma-remap-istanbul'],
   var reports = ['spec'],
-    browsers = ['PhantomJS'],
-    coverageReporters = [{ type: 'text-summary' }];
+    browsers = ['PhantomJS'];
 
-  // if (process.env.HTML_REPORT == '1') {
-  //   reports.push('html');
-    // coverageReporters.push({ type : 'html' });
-  // }
+  if (process.env.HTML_REPORT == '1') {
+    reports.push('html');
+    reports.push('coverage');
+  }
 
-  // if (process.env.ALL_BROWSERS == '1') {
-  //   browsers.push('Chrome');
-  // }
+  if (process.env.ALL_BROWSERS == '1') {
+    browsers.push('Chrome');
+  }
 
   config.set({
 
@@ -30,7 +23,6 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    // frameworks: ['jasmine'],
     frameworks: ['mocha', 'chai', 'sinon'],
 
     // list of files / patterns to load in the browser
@@ -50,7 +42,7 @@ module.exports = function(config) {
       '**/*.spec.ts': ['webpack']
     },
 
-    webpack: require(file),
+    webpack: require('./webpack.config'),
 
     webpackMiddleware: {
       stats: 'errors-only'
@@ -69,21 +61,27 @@ module.exports = function(config) {
       showSpecTiming: false // print the time elapsed for each spec
     },
 
-    // htmlReporter: {
-    //   outputFile: 'gui/lmc_specific/test/frontend/reports/result/index.html',
+    htmlReporter: {
+      outputFile: 'reports/result/index.html',
 
-    //   // Optional
-    //   pageTitle: 'Unit Tests',
-    //   subPageTitle: 'A sample project description',
-    //   groupSuites: true,
-    //   useCompactStyle: true,
-    //   useLegacyStyle: true
-    // },
+      // Optional
+      pageTitle: 'Unit Tests',
+      subPageTitle: 'A sample project description',
+      groupSuites: true,
+      useCompactStyle: true,
+      useLegacyStyle: true
+    },
 
-    // coverageReporter: {
-    //   dir : 'reports/coverage/',
-    //   reporters: coverageReporters
-    // },
+    coverageReporter: {
+      dir: 'reports/coverage/',
+      reporters: [
+        {
+          type: 'json',
+          subdir: '.',
+          file: 'coverage-final.json'
+        }
+      ]
+    },
 
     // web server port
     port: 9876,
